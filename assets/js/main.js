@@ -30,19 +30,15 @@ function convertPokemonToLi(pokemon) {
 
 const pokemonList = document.getElementById("pokemonList")
 
-fetch(url)
-    //caso a resposta(response) seja sucesso, você programa o que será feito com o then, nesse caso solicita o json da response
-    .then((response) => response.json())
-    .then((jsonBody) => jsonBody.results)
-    .then((pokemons) => {
-        for(let i = 0; i < pokemons.length; i++) {
-            const pokemon = pokemons[i];
+pokeApi.getPokemons().then((pokemons) => {
+    const listItems = []
 
-           pokemonList.innerHTML += convertPokemonToLi(pokemon)
-        }
-    })
-    //caso dê erro no carregamento, você trata com o catch
-    .catch((error) => console.log(error))
-    //caso deseje sinalizar, independente do sucesso ou do fracasso pode usar o finally
-    .finally(() => console.log("Requisição concluida!"))
-;
+    for(let i = 0; i < pokemons.length; i++) {
+        const pokemon = pokemons[i];
+        //converte a lista de 10 pokemons objetos em uma lista de pokemons em HTML
+        listItems.push(convertPokemonToLi(pokemon))
+
+    }
+})
+    
+
