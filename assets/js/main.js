@@ -1,25 +1,19 @@
-/* offset = recuperar a posição atual de um elemento em relação ao documento, nesse caso posição 0*/
-const offset = 0;
-
-/*parâmetro de query usado para limitar a quantidade de resultados que o servidor vai retornar. Nesse caso trará 10 pokemons */
-const limit = 10;
-
-/*url que será utilizada para acessar os dados, colocando o offset e limit de forma dinâmica */
-const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
+function convertPokemonsTypesToLi(pokemonsTypes) {
+    return pokemonsTypes.map((typeSlot) => `<li class="type">${typeSlot.type.name}</li>`)
+}
 
 function convertPokemonToLi(pokemon) {
     return `
         <li class="pokemon">
-            <span class="number">#001</span>
+            <span class="number">#${pokemon.id}</span>
             <span class="name">${pokemon.name}</span>
 
             <div class="detail">
                 <ol class="types">
-                    <li class="type">Grass</li>
-                    <li class="type">Poison</li>
+                    ${convertPokemonsTypesToLi(pokemon.types).join(' ')}
                 </ol>
 
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="${pokemon.name}">
+                <img src="${pokemon.sprites.other.dream_world.front_default}" alt="${pokemon.name}">
 
             </div>
         </li>
