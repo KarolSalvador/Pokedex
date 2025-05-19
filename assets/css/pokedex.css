@@ -15,7 +15,7 @@
     background-color: #678fee;
 } 
 
-.eletric {
+.electric {
     background-color: #f7cf2e;
 }
 
@@ -145,9 +145,33 @@
     border: none;
     border-radius: 1rem;
     color: #fff;
-    padding: .25rem .5rem;
+    padding: .75rem .5rem;
     margin: .25rem 0;
     font-size: .800rem;
+}
+
+.pagination button:hover {
+  background-color: #545fc6; 
+  cursor: pointer; /* Isso muda o cursor do mouse para uma mãozinha, indicando que é clicável! */
+}
+
+#loading-spinner {
+    display: inline-block; /*deixar na mesma linha do botão*/
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-top-color: #333; /*cor da parte que vai girar*/
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /*animação*/
+    margin-left: 10px; /*espaço entre botão e bolinha*/
+}
+
+.hidder {
+    display: none !important; /*para esconder inicialmente*/
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); } /* Define a animação spin. No final (to), o elemento é rotacionado em 360 graus.*/
 }
 
 /*Media Queries permite que a renderização do conteúdo se adapte a diferentes condições*/
