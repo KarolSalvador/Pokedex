@@ -1,6 +1,12 @@
 
 const pokemonList = document.getElementById("pokemonList");
 const loadMoreButton = document.getElementById("loadMoreButton");
+//DINAMISMO POPUP
+//1-PEGAR OS ELEMENTOS HTML
+const pokemonDetailsPopup = document.getElementById('pokemonDetailsPopup');
+const closePopupBtn = document.getElementById('closePopupBtn');
+const detailsNamePokemon = document.getElementById('detailsNamePokemon');
+const detailsPhotoPokemon = document.getElementById('detailsPhotoPokemon');
 
 const maxRecords = 151;
 const limit = 8;
@@ -22,8 +28,9 @@ function loadPokemonItens(offset, limit) {
     showLoadingSpinner();
 
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+        //add data-id para guardar id do pokemon quando for clicado
         const newHtml = pokemons.map((pokemon) => `
-            <li class="pokemon ${pokemon.type}">
+            <li class="pokemon ${pokemon.type}" data-id="${pokemon.number}">
                 <span class="number">#${pokemon.number}</span>
                 <span class="name">${pokemon.name}</span>
 
@@ -38,6 +45,15 @@ function loadPokemonItens(offset, limit) {
             </li>
         `).join(' ')
         pokemonList.innerHTML += newHtml;
+
+        //adicionar evento de click ao data-id para exibir detalhes
+        document.querySelectorAll('.pokemon').forEach(card => { //seleciona todos os elementos de .pokemon -> para cada card irá 
+            card.addEventListener('click', () => {             //adicionar o evento de click
+                const pokemonId = card.getAttribute('data-id');
+                fetchPokemonDetails(pokemonId);
+            })
+        })
+
         hideLoadingSpinner();
     }).catch((error) => {
         console.error("Erro ao carregar Pokemons:", error);
@@ -63,16 +79,33 @@ loadMoreButton.addEventListener('click', () => {
     }
 })
 
-//DINAMISMO POPUP
-//1-PEGAR OS ELEMENTOS HTML
-const pokemonDetailsPopup = document.getElementById('pokemonDetailsPopup');
-const closePopupBtn = document.getElementById('closePopupBtn');
-const detailsNamePokemon = document.getElementById('detailsNamePokemon');
-const detailsPhotoPokemon = document.getElementById('detailsPhotoPokemon');
+function fetchPokemonDetails(id) {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    .then(response => response.json())
+    .then(data => {
+        console.log("Detalhes do Pokemon", data);
 
-pokemonDetailsPopup.addEventListener('click', () => {
-    console.log('clicou');
+        //exibir dados html do card
+        detailsNamePokemon.textContent = data.name;
+        detailsPhotoPokemon.src = data.sprites.front_default;
+        detailsNamePokemon.alt = data.name;
+
+        //mostrar popup
+        pokemonDetailsPopup.classList.add('show');
+    })
+    .catch(error => {
+        console.error('Erro ao buscar detalhes do Pokemon', error);
+    })
+}
+
+//fechar o popup
+closePopupBtn.addEventListener('click', () => {
+    pokemonDetailsPopup.classList.remove('show');
 })
+
+
+
+
 
 
 
