@@ -17,6 +17,8 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/pokedex.css">
+    <link rel="stylesheet" href="assets/css/details-popup.css">
+
 
     
 </head>
@@ -38,6 +40,42 @@
         </div>
 
     </section>
+
+    <!--Div para criar e manipular popup com detalhes do pokemon -->
+    <div class="pokemon-details-popup" id="pokemonDetailsPopup">
+        <!--cartão com detalhes-->
+        <div class="pokemon-details-content">
+            <button class="close-popup" id="closePopup">X</button>
+            <!--div para a parte de cima do card-->
+            <div class="pokemon-details-top">
+                <h2 id="detailsNamePokemon"></h2>
+                <p id="detailsNumberPokemon"></p>
+                <div id="detailsTypePokemon" class="types-container"></div>
+                <img id="detailsPhotoPokemon" src="" alt="Foto do Pokemon">
+            </div>
+            <!--div para a parte de baixo com as informações do pokemon-->
+            <div class="pokemon-details-info">
+                <div class="abas">
+                    <button class="aba-botao ativo" data-aba="about">About</button>
+                    <button class="aba-botao" data-aba="base-stats">Base Stats</button>
+                    <button class="aba-botao" data-aba="evolution">Evolution</button>
+                </div>
+                <div class="conteudo-aba ativo" id="conteudoAbout">
+                    <p><strong>Species:</strong> <span id="detalhesEspecie"></span></p>
+                    <p><strong>Height:</strong> <span id="detalhesAltura"></span></p>
+                    <p><strong>Weight:</strong> <span id="detalhesPeso"></span></p>
+                    <p><strong>Abilities:</strong> <span id="detalhesHabilidades"></span></p>
+                </div>
+                <div class="conteudo-aba" id="conteudoBaseStats">
+                    <p>Base Stats em breve!</p>
+                </div>
+                <div class="conteudo-aba" id="conteudoEvolution">
+                    <p>Evoluções em breve!</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 
     <script src="assets/js/pokemon-model.js"></script>
     <script src="assets/js/poke-api.js"></script>
