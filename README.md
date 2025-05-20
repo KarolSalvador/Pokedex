@@ -17,6 +17,11 @@ O objetivo principal foi aplicar conceitos fundamentais de requisições HTTP e 
 - Separação de responsabilidades no código, organizando a lógica de requisição e manipulação do DOM.  
 - Utilização da função `map()` para transformar os dados da API em elementos HTML.
 
+## 📸 Captura de Tela
+
+![Pokédex Screenshot](https://i.postimg.cc/8c0Sd6bT/Captura-de-tela-2025-05-19-113949.png)
+
+
 ## 💡 Desafio Adicional
 
 Como parte do aprimoramento contínuo deste projeto, foi implementado um card de detalhes para exibir informações específicas de cada Pokémon ao ser selecionado. Este desafio visou melhorar a interatividade e fornecer uma experiência mais rica ao usuário.
@@ -39,6 +44,3 @@ Durante o desenvolvimento deste projeto, aprofundei meus conhecimentos em:
 - Integração com APIs REST e tratamento de dados JSON  
 - Boas práticas de organização e reutilização de código
 
-## 📸 Captura de Tela
-
-![Pokédex Screenshot](https://i.postimg.cc/8c0Sd6bT/Captura-de-tela-2025-05-19-113949.png)
