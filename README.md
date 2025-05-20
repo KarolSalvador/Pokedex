@@ -17,6 +17,12 @@ O objetivo principal foi aplicar conceitos fundamentais de requisições HTTP e 
 - Separação de responsabilidades no código, organizando a lógica de requisição e manipulação do DOM.  
 - Utilização da função `map()` para transformar os dados da API em elementos HTML.
 
+## 💡 Desafio Adicional
+
+Como parte do aprimoramento contínuo deste projeto, foi implementado um card de detalhes para exibir informações específicas de cada Pokémon ao ser selecionado. Este desafio visou melhorar a interatividade e fornecer uma experiência mais rica ao usuário.
+
+![Card de Detalhes do Pokémon](https://i.postimg.cc/50w6yWDS/Captura-de-tela-2025-05-20-142829.png)
+
 ## 🛠️ Tecnologias Utilizadas
 
 - HTML5  
