@@ -63,3 +63,16 @@ loadMoreButton.addEventListener('click', () => {
     }
 })
 
+//DINAMISMO POPUP
+//1-PEGAR OS ELEMENTOS HTML
+const pokemonDetailsPopup = document.getElementById('pokemonDetailsPopup');
+const closePopupBtn = document.getElementById('closePopupBtn');
+const detailsNamePokemon = document.getElementById('detailsNamePokemon');
+const detailsPhotoPokemon = document.getElementById('detailsPhotoPokemon');
+
+pokemonDetailsPopup.addEventListener('click', () => {
+    console.log('clicou');
+})
+
+
+
