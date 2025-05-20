@@ -52,7 +52,7 @@
 
 /*Foto pokemon*/
 #detailsPhotoPokemon {
-    max-width: 120px;
+    width: 200px;
     height: auto;
     margin: 15px auto;
     display: block;
@@ -69,4 +69,5 @@
 
 .pokemon-info li {
     margin-bottom: 10px;
+    text-transform: capitalize;
 }

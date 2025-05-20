@@ -8,6 +8,7 @@ const closePopupBtn = document.getElementById('closePopupBtn');
 const detailsNamePokemon = document.getElementById('detailsNamePokemon');
 const detailsPhotoPokemon = document.getElementById('detailsPhotoPokemon');
 
+
 const maxRecords = 151;
 const limit = 8;
 let offset = 0;
@@ -80,15 +81,23 @@ loadMoreButton.addEventListener('click', () => {
 })
 
 function fetchPokemonDetails(id) {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-    .then(response => response.json())
+    
+    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`) //faz um fetch na PokeAPI
+    .then(response => response.json()) //converte o resultado em JSON
     .then(data => {
         console.log("Detalhes do Pokemon", data);
 
-        //exibir dados html do card
+        //exibir dados de Nome e imagem do html no card
         detailsNamePokemon.textContent = data.name;
-        detailsPhotoPokemon.src = data.sprites.front_default;
+        detailsPhotoPokemon.src = data.sprites.other['official-artwork'].front_default || data.sprites.front_default; //tentar pegar melhor qualidade
         detailsNamePokemon.alt = data.name;
+
+        //exibir detalhes de info
+        document.getElementById('detailsSpecies').textContent = data.species.name;
+        document.getElementById('detailsHeight').textContent = `${data.height / 10} m`; //dividido por 10 pois a pokeapi retorna em decimetros
+        document.getElementById('detailsWeight').textContent = `${data.weight / 10} kg`; //dividido por 10 pois a pokeapi retorna em hectogramas
+        document.getElementById('detailsAbility').textContent = data.abilities
+            .map(item => item.ability.name).join(', '); //percorre as habilidades criando um array, .join junta todas em única string separada por ,
 
         //mostrar popup
         pokemonDetailsPopup.classList.add('show');
@@ -102,6 +111,10 @@ function fetchPokemonDetails(id) {
 closePopupBtn.addEventListener('click', () => {
     pokemonDetailsPopup.classList.remove('show');
 })
+
+function capitalize(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+}
 
 
 
