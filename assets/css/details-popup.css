@@ -57,3 +57,16 @@
     margin: 15px auto;
     display: block;
 }
+
+/*parte inferior*/
+.pokemon-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #444;
+}
+
+.pokemon-info li {
+    margin-bottom: 10px;
+}

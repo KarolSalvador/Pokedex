@@ -7,12 +7,16 @@
     <title>Pokedex</title>
 
     <!-- Normalize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700&family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700&family=Roboto:wght@100;300;500;700&display=swap"
+        rel="stylesheet">
 
 
     <link rel="stylesheet" href="assets/css/style.css">
@@ -20,7 +24,7 @@
     <link rel="stylesheet" href="assets/css/details-popup.css">
 
 
-    
+
 </head>
 
 <body>
@@ -44,11 +48,22 @@
     <!--Div para criar e manipular popup com detalhes do pokemon -->
     <div class="pokemon-details-popup" id="pokemonDetailsPopup">
         <div class="pokemon-details-content">
+            <!--botão de fechar-->
             <button class="close-popup" id="closePopupBtn">X</button>
+            <!--parte de cima, div nome e foto-->
             <h2 id="detailsNamePokemon"></h2>
             <img id="detailsPhotoPokemon" src="" alt="Foto do Pokemon">
-            <p>Mais detalhes em breve!</p>
+            <!--parte de baixo, div para detalhes do sobre-->
+            <div class="info-details">
+                <ul id="detailsInfoPokemon" class="pokemon-info">
+                    <li><strong>Species:</strong> <span id="detailsSpecies"></span></li>
+                    <li><strong>Height:</strong> <span id="detailsHeight"></span></li>
+                    <li><strong>Weight:</strong> <span id="detailsWight"></span></li>
+                    <li><strong>Abilities:</strong> <span id="detailsAbility"></span></li>
+                </ul>
+            </div>
         </div>
+
     </div>
 
     <script src="assets/js/pokemon-model.js"></script>
