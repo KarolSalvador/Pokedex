@@ -19,7 +19,7 @@ O objetivo principal foi aplicar conceitos fundamentais de requisições HTTP e 
 
 ## 📸 Captura de Tela
 
-![Pokédex Screenshot](https://i.postimg.cc/8c0Sd6bT/Captura-de-tela-2025-05-19-113949.png)
+![Pokédex Screenshot]([https://i.postimg.cc/8c0Sd6bT/Captura-de-tela-2025-05-19-113949.png](https://i.postimg.cc/j515hQKf/Captura-de-tela-2025-07-01-104116.png))
 
 
 ## 💡 Desafio Adicional
